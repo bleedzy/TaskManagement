@@ -45,4 +45,8 @@ Route::prefix('director/')->name('director.')->group(function () {
 });
 Route::prefix('manager/')->name('manager.')->group(function(){
     Route::get('', [CManager::class, 'dashboard'])->name('dashboard');
+    Route::prefix('task_from_director')->name('task_from_director.')->group(function(){
+        Route::get('',[CManager::class, 'task_from_director'])->name('task_from_director');
+        Route::get('detail/{id}',[CManager::class, 'task_detail'])->name('detail');
+    });
 });
